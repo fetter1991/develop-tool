@@ -1,0 +1,18 @@
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaoyiNeural">
+        <mstts:express-as style="embarrassed" styledegree="2">
+            要不，
+            <prosody volume="10" rate="+11%" pitch="0%">这样吧？</prosody>
+        </mstts:express-as>
+    </voice>
+</speak>
+
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts"
+       xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+    <voice name="zh-CN-YunxiNeural">
+        <mstts:express-as style="depressed">
+            <prosody rate="-10%" pitch="0%">注意听这个背景音乐！只要这个音乐配上这个声音，再加上几段随便截取的视频画面，一个屁事没有，但好像有大事要发生的视频就做出来了。</prosody>
+        </mstts:express-as>
+    </voice>
+</speak>
