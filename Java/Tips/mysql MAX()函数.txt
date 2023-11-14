@@ -1,0 +1,6 @@
+max(Boolean)
+
+table中有字段`is_finished` bit(1) DEFAULT NULL COMMENT '是否完成任务',
+类型为bit，用(0未完成、1已完成)来记录是否完成任务
+统计时使用max()函数找出是否有为1的记录，并映射到 Boolean isSinished的DTO中，mysql中的执行结果为0，但返回的DTO显示为true。
+应使用IF(max(is_finished),TRUE,FALSE)来改善返回结果。

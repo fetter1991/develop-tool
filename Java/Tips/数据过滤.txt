@@ -1,0 +1,16 @@
+        //过滤数据
+//        if (categoryId != null && categoryId != 0) {
+//            userCourse = userCourse.stream().filter(item -> {
+//                Optional<MoocCourseClassifyDto> optional = item.getCourseClassifies().stream().filter(o -> o.getClassifyId().equals(categoryId)).findFirst();
+////                boolean optional1 = item.getPid().equals(categoryId);
+//                Integer i = item.getFullPath().indexOf(categoryId + ",");
+//                return optional.isPresent() || i != -1;
+//            }).collect(Collectors.toList());
+//        }
+
+//        if (labelId != null && labelId != 0) {
+//            userCourse = userCourse.stream().filter(item -> {
+//                Optional<PubLabelBasicDTO> optional = item.getCourseLabels().stream().filter(o -> o.getLabelId().equals(labelId)).findFirst();
+//                return optional.isPresent();
+//            }).collect(Collectors.toList());
+//        }

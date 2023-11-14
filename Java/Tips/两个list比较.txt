@@ -1,0 +1,15 @@
+现在有两个list<Obejct1>,和List<Obeject2>,Obejct1和Object2有一个相同的属性name,请使用java 的stream处理数据，当Object1中的属性name能在Obhect中找到时，保留该条数据，否则过滤。  
+
+首先，你需要从第二个列表中获取所有的name属性，然后在第一个列表中过滤出那些name存在于第二个列表中的对象。下面是一个简单的示例，假设Object1和Object2都有一个getName()方法来获取name属性。
+
+
+List<Object1> list1 = ...;
+List<Object2> list2 = ...;
+
+Set<String> names = list2.stream()
+    .map(Object2::getName)
+    .collect(Collectors.toSet());
+
+List<Object1> filteredList = list1.stream()
+    .filter(object1 -> names.contains(object1.getName()))
+    .collect(Collectors.toList());
