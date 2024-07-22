@@ -1,62 +1,44 @@
 from playwright.sync_api import sync_playwright
-import os
-import requests
-from io import BytesIO
-from pathlib import Path
-
-wdPath = "./1/"
-baseUrl = "https://www.bilibili.com/read/"
-
-# filenames = os.listdir(wdPath)
-
-# 打印所有文件名
-# for fileFullName in filenames:
-#     filename = os.path.splitext(fileFullName)[0]
-#     extensions = os.path.splitext(fileFullName)[1]
-#     # print('文件名:' + filename + ' 扩展名：' + extensions)
-#
-#     pageUrl = baseUrl + filename
-#     page.goto(pageUrl)
 
 
-def createNewFolder(path):
-    folder_path = os.path.join(wdPath, path)
-    os.mkdir(folder_path)
-    # folder_path.mkdir(parents=True, exist_ok=True)
+def run(playwright):
+    browser = playwright.chromium.launch(headless=False)  # headless=False 允许我们看到一个实际的浏览器窗口
+    page = browser.new_page()
+
+    # 打开包含表格的页面
+    # page.goto('https://om.tencent.com/attendances/check_out/22700602')  # 请替换为你的网页URL
+    page.goto('https://www.baidu.com/s?wd=%E5%BC%80%E5%B0%81%E5%9F%8E%E5%A2%99%E5%9D%8D%E5%A1%8C%EF%BC%9F%E7%B3%BB%E8%B0%A3%E8%A8%80&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1')  # 请替换为你的网页URL
+
+    # 等待几秒钟，用来手动登录
+    page.wait_for_timeout(2000)
+
+    # 定位到第一个类名为page的tr元素的第二个单元格
+    # 注意：CSS选择器中的nth-child是从1开始计数的，并且这里假设单元格是<td>元素
+    # 如果单元格是<th>，则将下面的'td'替换为'th'
+
+    # box > tbody > tr.page:first-of-type td:nth-child(2)
+
+    # selector = '.rs-label_ihUhK'
+    selector = '.rs-col_8Qlx-:nth-of-type(2)'
+
+    page.wait_for_selector(selector, timeout=2000)
+
+    cell_content = page.eval_on_selector(selector, 'element => element.innerText')
+
+    # 获取单元格的文本内容
+    # cell_content = page.inner_text(selector)
+
+    # 打印单元格的内容
+    print(cell_content)
+
+    # 等待几秒钟，关闭页面
+    # page.wait_for_timeout(4000)
+
+    input("按Enter关闭页面。。。")
+
+    # 关闭浏览器
+    browser.close()
 
 
-
-p = sync_playwright().start()
-browser = p.chromium.launch(headless=False,  executable_path='c:\Program Files\Google\Chrome\Application\chrome.exe')
-
-# 创建 BrowserContext对象
-context = browser.new_context()
-# 启动跟踪功能
-context.tracing.start(snapshots=True, sources=True, screenshots=True)
-
-page = context.new_page()
-page.goto("https://www.bilibili.com/read/cv23921171")
-
-page.wait_for_timeout(2000)
-
-# # 假设我们要找的div的class是"target-div"
-# # 注意：这里的选择器可能需要根据实际的HTML结构进行调整
-# div_selector = '.article-container'
-# div_handle = page.query_selector(div_selector)
-#
-# # 获取div下的所有p标签
-# p_handles = div_handle.query_selector_all('.up-name')
-# third_p_text = p_handles[0].text_content()
-# actor = third_p_text.strip()
-# createNewFolder("【"+actor+"】")
-
-# 获取div下的所有img标签，并找到class为"img"的图片
-# img_handles = div_handle.query_selector_all('img.bili-avatar-face')
-# for img_handle in img_handles:
-#     img_src = img_handle.get_attribute('src')
-#     print(f"找到的图片地址: {img_src}")
-
-page.goto("https://www.bilibili.com/read/cv23921172")
-
-input('3....')
-browser.close()
+with sync_playwright() as playwright:
+    run(playwright)
