@@ -42,6 +42,9 @@ def run(playwright):
     # 未完成
     not_finish = ".group-form:nth-of-type(1) label:nth-of-type(3)"
     page.wait_for_selector(not_finish, timeout=2000)
+    not_finish = ".group-form:nth-of-type(1) label:nth-of-type(3)"
+    cell_content = page.eval_on_selector(not_finish, 'element => element.innerText')
+    print(cell_content)
     page.click(not_finish)
 
     # 点击第一个元素打开新页面

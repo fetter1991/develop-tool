@@ -1,0 +1,24 @@
+<!-- index.html -->
+<html lang="">
+<head><title>Test Page</title></head>
+<body>
+<p id="text-to-change">Original Text</p>
+<script>
+    function typeText(elementId, text, delay) {
+        const element = document.getElementById(elementId);
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                element.textContent = text.substring(0, index + 1);
+                index++;
+                setTimeout(type, delay);
+            }
+        }
+
+        type();
+    }
+    // typeText('text-to-change', '为了优化代码并实现仅逐字输出的效果，我们可以继续使用Playwright与Python结合，但这次我们将专注于确保JavaScript代码在浏览器中正确执行，并且Python代码主要负责启动浏览器和页面。');
+</script>
+</body>
+</html>
