@@ -70,13 +70,17 @@ checkInStr = "2024-07-25 09:28"
 checkInTime = datetime.strptime(checkInStr, '%Y-%m-%d %H:%M')
 
 # 在签入时间的基础上加上9个小时
-checkOutTime = checkInTime + timedelta(hours=1.7)
+checkOutTime = checkInTime + timedelta(hours=9)
 print(f"签出时间: {checkOutTime.strftime('%Y-%m-%d %H:%M:%S')}")
 
 # 获取当前时间
 current_time = datetime.now()
 # 计算签出时间与当前时间的时间差（以秒为单位）
 time_difference = int((checkOutTime - current_time).total_seconds())
+# 延迟几秒钟
+time_difference = time_difference + 30
 
 # 调用打卡主体程序
 countdown(time_difference)
+# 一分钟后再执行一次
+countdown(60)
