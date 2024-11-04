@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport"><meta content="telephone=no, address=no" name="format-detection"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="keywords" content="免费在线微信对话生成器,在线微信对话生成器,在线微信对话制作,微商截图,微商截图生成器,微信转账生成器,微信钱包生成器,虚拟微信聊天软件,微信模拟器在线,微信模拟器破解版,微信模拟器无水印"><meta name="description" content="在线微信对话生成器2是一款在线微信聊天对话制作的工具，它可以设置苹果或安卓状态栏，包括手机电量、手机营运商、手机时间等，还可以设置不同用户的头像和昵称，然后发送文字对话、转账对话、红包对话、语音对话等，最后可以一键生成截图保存，可谓是一款微商神器"><link rel="icon" href="/logo.png"><script crossorigin="anonymous" integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y" src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script><script crossorigin="anonymous" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" src="https://lib.baomitu.com/axios/0.26.0/axios.min.js"></script><script crossorigin="anonymous" integrity="sha384-GIuPvKLubNw7l6uylbFJuboOEkyUGornNrBpOzyjnX38dmiknlqWy+qN8a87EMZK" src="https://lib.baomitu.com/vuex/3.1.1/vuex.min.js"></script><title>聊天对话器</title><style>html,
+      body{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fdf9ed!important;
+        background-image: url(/warning.png)!important;
+      }
+
+      @-webkit-keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .loading-circle {
+        width: 32px;
+        height: 32px;
+        border: 2px solid #FFF;
+        border-bottom-color: #8bc34a;
+        border-radius: 50%;
+        display: inline-block;
+        -webkit-animation: rotation 1s linear infinite;
+        animation: rotation 1s linear infinite;
+        margin-top: 10px;
+      }
+
+      .loading-logo {
+        width: 80px;
+        height: 80px;
+        background-size: 80px;
+        border-radius: 20px;
+        background-image: url(/logo.png);
+      }
+
+      .loading-text {
+        font-size: 14px;
+        color: #666;
+        margin-top: 10px;
+      }
+      #qqMap > div > div > div {
+        inset: auto 0 0 auto!important;
+      }
+      .android #qqMap > div > div > div {
+        inset: auto auto 0 0!important;
+      }
+      #qqMap .logo-text {
+        display: none!important;
+      }</style><link href="/css/chunk-884a7ca2.bf9432c1.css" rel="prefetch"><link href="/js/chunk-884a7ca2.acbafe1e.js" rel="prefetch"><link href="/css/app.a78f1b3f.css" rel="preload" as="style"><link href="/js/app.ffe40e0b.js" rel="preload" as="script"><link href="/css/app.a78f1b3f.css" rel="stylesheet"></head><body class="web"><div id="app"><div class="loading"><div class="loading-logo"></div><div class="loading-circle"></div><div class="loading-text">聊天对话器加载中...</div></div></div><script src="/js/app.ffe40e0b.js"></script></body><link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"><script src="https://unpkg.com/element-ui/lib/index.js"></script><script src="https://map.qq.com/api/gljs?v=1.exp&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"></script><script>// var _hmt = _hmt || [];
+    // (function() {
+    //   var hm = document.createElement("script");
+    //   hm.src = "https://hm.baidu.com/hm.js?bb11b419289a1b8fb06a9a9210ec9fa2";
+    //   var s = document.getElementsByTagName("script")[0]; 
+    //   s.parentNode.insertBefore(hm, s);
+    // })();</script></html>
