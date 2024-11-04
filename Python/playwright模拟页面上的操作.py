@@ -15,21 +15,23 @@ def run(playwright):
     page.set_viewport_size({'width': screen_width, 'height': screen_height})
 
     # 打开包含表格的页面
-    page.goto('https://portal.learn.woa.com/training/mooc/home')  # 请替换为你的网页URL
+    page.goto('https://test-portal-learn.woa.com/training/mooc/home')  # 请替换为你的网页URL
 
     # 等待几秒钟，用来登录
-    page.wait_for_timeout(1000)
+    page.wait_for_timeout(5000)
 
-    # 点击登录
-    page.click('input[type="submit"]')
-    page.wait_for_timeout(2000)
+#     # 点击登录
+#     page.click('input[type="submit"]')
+#     page.wait_for_timeout(1000)
 
+    print("鼠标悬浮")
     # 鼠标悬浮
     hover_select = ".user-avatar"
     page.hover(hover_select)
 
-    page.wait_for_timeout(2000)
+    page.wait_for_timeout(1000)
 
+    print("详情")
     # 详情
     more = ".top-content button"
     page.click(more)
@@ -39,6 +41,7 @@ def run(playwright):
     # cell_content = page.eval_on_selector(not_finish, 'element => element.innerText')
     # print(cell_content)
 
+    print("未完成")
     # 未完成
     not_finish = ".group-form:nth-of-type(1) label:nth-of-type(3)"
     page.wait_for_selector(not_finish, timeout=2000)
@@ -47,6 +50,7 @@ def run(playwright):
     print(cell_content)
     page.click(not_finish)
 
+    print("点击第一个元素打开新页面")
     # 点击第一个元素打开新页面
     course_list = ".content .course-item:nth-of-type(1)"
     page.wait_for_selector(course_list, timeout=2000)
@@ -57,6 +61,7 @@ def run(playwright):
     # pages属性是 所有窗口对应Page对象的列表
     new_page = context.pages[1]
 
+    print("点击第一个元素打开新页面")
     # 新页面标题 校验是否打开成功
     # print(new_page.title())
     new_last_study = ".lastly-study-box button:nth-of-type(1)"
