@@ -3,7 +3,7 @@ import time
 import os
 
 current_directory = os.getcwd()
-file = "index.html"
+file = "../index.html"
 full_path = os.path.join(current_directory, file)
 
 def run():

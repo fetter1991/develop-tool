@@ -2,6 +2,7 @@ from playwright.sync_api import sync_playwright
 
 
 def run(playwright):
+
     browser = playwright.chromium.launch(channel="chrome", headless=False)  # headless=False 允许我们看到一个实际的浏览器窗口
     # page = browser.new_page()
 
@@ -20,13 +21,21 @@ def run(playwright):
     # 等待几秒钟，用来登录
     page.wait_for_timeout(5000)
 
-#     # 点击登录
-#     page.click('input[type="submit"]')
-#     page.wait_for_timeout(1000)
+    element = page.query_selector('#content')
+    if element:
+        print("继续下一步")
+    else:
+        print("需要登录")
+        login_form = page.query_selector('.login_form')
+        if login_form:
+            page.fill('input[id="userNameInp"]', 'vincentyqwu')
+            page.fill('input[id="passWordInp"]', '123')
+            # 点击登录
+            page.click('button[type="submit"]')
 
     print("鼠标悬浮")
     # 鼠标悬浮
-    hover_select = ".user-avatar"
+    hover_select = ".my-mooc-btn"
     page.hover(hover_select)
 
     page.wait_for_timeout(1000)
@@ -87,4 +96,3 @@ def run(playwright):
 
 with sync_playwright() as playwright:
     run(playwright)
-
